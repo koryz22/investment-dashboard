@@ -2,7 +2,7 @@
 
 A modern, full-stack financial dashboard application built with **Angular 20** (frontend), **ASP.NET Core** (backend API), and mocked **SQL Server** data.
 
-## 🎯 Features
+## Features
 
 ### Dashboard Widgets
 - **Total Cash Summary** - Big number display at the top with monthly income, expenses, and net savings
@@ -17,7 +17,7 @@ A modern, full-stack financial dashboard application built with **Angular 20** (
 - **Data Layer**: Mocked repository pattern (simulating SQL Server)
 - **Styling**: Modern CSS with `#021c4d` dark blue theme
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (v18 or higher)
@@ -46,7 +46,7 @@ ng serve
 
 The application will be available at `http://localhost:4200`
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 jpf_dashboard/
@@ -82,7 +82,7 @@ jpf_dashboard/
     └── package.json
 ```
 
-## 🔌 API Endpoints
+## API Endpoints
 
 The backend exposes the following RESTful endpoints:
 
@@ -94,7 +94,7 @@ The backend exposes the following RESTful endpoints:
 | `/api/transactions` | GET | Returns recent transactions (supports `?count=N` query param) |
 | `/api/investments` | GET | Returns investment portfolio data |
 
-## 🎨 Design & Styling
+## Design & Styling
 
 The dashboard features a modern, clean design with:
 - **Primary Color**: `#021c4d` (Dark Blue)
@@ -103,7 +103,7 @@ The dashboard features a modern, clean design with:
 - **Typography**: Segoe UI with clean hierarchy
 - **Responsive**: Mobile-friendly grid layout
 
-## 🧪 Mocked Data
+## Mocked Data
 
 The application uses hardcoded sample data in `FinancialRepository.cs` to simulate a SQL Server database. This includes:
 - 10 sample transactions (income and expenses)
@@ -111,7 +111,7 @@ The application uses hardcoded sample data in `FinancialRepository.cs` to simula
 - 6 months of monthly financial data
 - Calculated summary statistics
 
-## 🛠️ Development Notes
+## Development Notes
 
 ### CORS Configuration
 The backend is configured to accept requests from `http://localhost:4200` (Angular default port).
@@ -126,7 +126,7 @@ The backend is configured to accept requests from `http://localhost:4200` (Angul
 - Data loaded via HttpClient on component initialization
 - Observable pattern for async data handling
 
-## 📝 Future Enhancements
+## Future Enhancements
 
 - Add authentication and user management
 - Implement real database connection
@@ -134,11 +134,3 @@ The backend is configured to accept requests from `http://localhost:4200` (Angul
 - Include budget tracking and forecasting
 - Add export functionality (PDF, Excel)
 - Implement real-time updates via SignalR
-
-## 📄 License
-
-This project is for learning and demonstration purposes.
-
----
-
-**Built with ❤️ using Angular 20 and ASP.NET Core**
