@@ -1,4 +1,4 @@
-# 🎯 Investment & Accounting Dashboard - Demo Version
+# Investment & Accounting Dashboard - Demo Version
 
 This is a **standalone demo version** of the Investment & Accounting Dashboard with **built-in mock data**.
 
