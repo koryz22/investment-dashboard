@@ -1,0 +1,23 @@
+# .NET
+DashboardAPI/bin/
+DashboardAPI/obj/
+DashboardAPI/.vs/
+*.user
+*.suo
+*.cache
+
+# Angular
+DashboardUI/node_modules/
+DashboardUI/dist/
+DashboardUI/.angular/
+DashboardUI/.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~

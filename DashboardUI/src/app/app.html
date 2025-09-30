@@ -1,0 +1,114 @@
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h1>{{ title }}</h1>
+  </header>
+
+  <main class="dashboard-main">
+    <!-- Total Cash Summary -->
+    <section class="summary-card">
+      <div class="summary-content" *ngIf="summary">
+        <h2>Total Cash</h2>
+        <div class="total-cash">{{ formatCurrency(summary.totalCash) }}</div>
+        <div class="summary-details">
+          <div class="detail-item positive">
+            <span class="label">Monthly Income</span>
+            <span class="value">{{ formatCurrency(summary.monthlyIncome) }}</span>
+    </div>
+          <div class="detail-item negative">
+            <span class="label">Monthly Expenses</span>
+            <span class="value">{{ formatCurrency(summary.monthlyExpenses) }}</span>
+      </div>
+          <div class="detail-item" [class.positive]="summary.netSavings > 0" [class.negative]="summary.netSavings < 0">
+            <span class="label">Net Savings</span>
+            <span class="value">{{ formatCurrency(summary.netSavings) }}</span>
+      </div>
+    </div>
+  </div>
+    </section>
+
+    <!-- Charts Row -->
+    <div class="charts-row">
+      <!-- Income vs Expenses Chart -->
+      <section class="chart-card">
+        <h3>Income vs. Expenses (Monthly)</h3>
+        <div class="chart-container">
+          <canvas baseChart
+                  [data]="incomeExpensesChartData"
+                  [options]="incomeExpensesChartOptions"
+                  [type]="incomeExpensesChartType">
+          </canvas>
+        </div>
+      </section>
+
+      <!-- Expenses by Category Chart -->
+      <section class="chart-card">
+        <h3>Expenses by Category</h3>
+        <div class="chart-container">
+          <canvas baseChart
+                  [data]="expensesCategoryChartData"
+                  [options]="expensesCategoryChartOptions"
+                  [type]="expensesCategoryChartType">
+          </canvas>
+        </div>
+      </section>
+    </div>
+
+    <!-- Tables Row -->
+    <div class="tables-row">
+      <!-- Recent Transactions Table -->
+      <section class="table-card">
+        <h3>Recent Transactions</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let transaction of transactions">
+                <td>{{ formatDate(transaction.date) }}</td>
+                <td>{{ transaction.description }}</td>
+                <td>{{ transaction.category }}</td>
+                <td [class.positive]="transaction.amount > 0" [class.negative]="transaction.amount < 0">
+                  {{ formatCurrency(transaction.amount) }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Investment Snapshot Table -->
+      <section class="table-card">
+        <h3>Investment Snapshot</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Investment Name</th>
+                <th>Value</th>
+                <th>Return %</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let investment of investments">
+                <td>
+                  <div class="investment-name">{{ investment.name }}</div>
+                  <div class="investment-type">{{ investment.type }}</div>
+                </td>
+                <td>{{ formatCurrency(investment.value) }}</td>
+                <td [class.positive]="investment.returnPercentage > 0" [class.negative]="investment.returnPercentage < 0">
+                  {{ investment.returnPercentage > 0 ? '+' : '' }}{{ investment.returnPercentage.toFixed(2) }}%
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
